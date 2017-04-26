@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	div.content
+		h2.content-subhead What is this?
+		p.line-breaks
+			| This is a test tool for obtaining an OIDC token from IBM blueID for use in API Connect.
+		ul
+			li Authorization Code
+			li Client Credentials
+			li Resource Owner Password
+
+	style.
+		.line-breaks
+		{
+		white-space: pre;
+		}
+		.text-code
+		{
+		font-weight: bold;
+		color: #4089E5;
+		font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+		}

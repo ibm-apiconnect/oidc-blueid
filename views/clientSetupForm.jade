@@ -1,0 +1,49 @@
+extends layout
+
+block content
+	div.content
+		form(method='post' action='/clientSetupFormSubmit').pure-form.pure-form-aligned
+			fieldset
+				div.pure-control-group
+					label(for='client_type') Client Type
+					select#client_type(name='client_type')
+						option Confidential
+				if (formType == 'authz_code') || (formType == 'implicit')
+					div.pure-control-group
+						label(for='oauth_authz_url') Authorization URL
+						input(name='oauth_authz_url', type='text', value='https://prepiam.toronto.ca.ibm.com/idaas/oidc/endpoint/default/authorize').custom-input
+				unless (formType == 'implicit')
+					div.pure-control-group
+						label(for='oauth_token_url') Token URL
+						input(name='oauth_token_url', type='text', value='https://prepiam.toronto.ca.ibm.com/idaas/oidc/endpoint/default/token').custom-input
+				if (formType == 'ro_cred')
+					div.pure-control-group
+						label(for='ro_id') Resource Owner ID
+						input(name='ro_id', type='text').custom-input
+					div.pure-control-group
+						label(for='ro_pwd') Resource Owner Password
+						input(name='ro_pwd', type='password').custom-input
+				div.pure-control-group
+					label(for='client_id') Client ID
+					input(name='client_id', type='text').custom-input
+				unless (formType == 'implicit')
+					div#client_secret.pure-control-group
+						label(for='client_secret') Client Secret
+						input(name='client_secret', type='text').custom-input
+				if (formType == 'authz_code') || (formType == 'implicit')
+					div.pure-control-group
+						label(for='redirect_url') Redirect URL
+						input(name='redirect_url', type='text', value='https://apic-oidc-blueid.mybluemix.net/callback').custom-input
+				div.pure-control-group
+					label(for='req_scope') Scope
+					input(name='req_scope', type='text', value='openid').custom-input
+				div.pure-control-group
+					input(name='grant_type', type='hidden', value=formType)
+				div.pure-controls
+					input(type='submit',value='Submit').pure-button.pure-button-primary
+
+	style.
+		.custom-input
+		{
+		width: 400px;
+		}

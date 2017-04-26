@@ -1,0 +1,47 @@
+extends layout
+
+block content
+	div.content
+		if rspBody.access_token
+			h2.content-subhead Your access token
+			form.pure-form.pure-form-stacked
+				fieldset
+					if (rspBody.access_token != "checkHash")
+						textarea#tokenDisplay.pure-input-1.token-txtarea(readonly)= rspBody.access_token
+					else
+						textarea#tokenDisplay.pure-input-1.token-txtarea(readonly)
+		else
+			p.line-breaks An error occurred: #{rspBody.error}
+			if rspBody.error_description
+				p Error description: #{rspBody.error_description}
+	style.
+		.token-txtarea
+		{
+		height: 6em;
+		}
+		.req-txtarea
+		{
+		height: 12em;
+		width: 95%;
+		}
+		.rsp-txtarea
+		{
+		height: 12em;
+		width: 100%;
+		}
+		.line-breaks
+		{
+		white-space: pre;
+		}
+		.url-input
+		{
+		width: 100%;
+		}
+	script.
+		if (window.location.hash) {
+			var hash = window.location.hash.replace("#","");
+			var hashVals = hash.split("&");
+			var accessToken = hashVals[0].replace("access_token=","");
+			document.getElementById("tokenDisplay").value = accessToken;
+			document.getElementById("oauth_access_token").value = accessToken;
+		}

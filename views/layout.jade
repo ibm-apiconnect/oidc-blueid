@@ -1,0 +1,24 @@
+doctype html
+html(lang='en')
+  include header
+body
+  #layout
+    a(href="#menu" id="menuLink").menu-link
+      span
+    #menu
+      div.pure-menu.custom-restricted-width
+        a(href="/").pure-menu-heading Grant Types
+        ul.pure-menu-list
+          li.pure-menu-item
+            a(href="/authz_code").pure-menu-link Authorization Code
+          li.pure-menu-item
+            a(href="/client_cred").pure-menu-link Client Credentials
+          li.pure-menu-item
+            a(href="/ro_cred").pure-menu-link Resource Owner Pwd
+    #main
+      div.header
+        h1= header
+        h2= subHeader
+      block content
+  script(src='/js/ui/ui.js')
+  script(src='/js/ui/menus.js')
