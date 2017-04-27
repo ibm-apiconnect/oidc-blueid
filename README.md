@@ -1,6 +1,6 @@
-#Integrating API Connect with a 3rd Party OpenID Connect Provider (IBM blueID)
+# Integrating API Connect with a 3rd Party OpenID Connect Provider (IBM blueID)
 
-##Register an Application in the API Connect Developer Portal
+## Register an Application in the API Connect Developer Portal
 
 1. Log in to the Developer Portal for your desired Catalog
 
@@ -14,7 +14,7 @@
 
     1. Save the value to a notepad
 
-##Register a BlueID Application and Client
+## Register a BlueID Application and Client
 
 1.	Launch the IBM SSO Self-Service Portal:
 
@@ -50,7 +50,7 @@
 
 1.	You will receive an email stating that the application request was received, then a few minutes later a second email stating that it is approved successfully.
 
-##Configure your API to use blueID ODIC
+## Configure your API to use blueID ODIC
 
 1.	Launch the API Designer from your toolkit or within the API Manager server.
 
@@ -78,7 +78,7 @@
 
 1.	Scroll down to the Security section of the API definition and ensure all three Security Definitions are selected, along with the openid scope.
 
-##Publish and subscribe to the API Product
+## Publish and subscribe to the API Product
 
 1.	Create a new Product and add your API definition
 
@@ -90,7 +90,7 @@
 
 1. Click the Subscribe button to link your Developer Portal Application to the API Product
 
-##Test the API
+## Test the API
 
 Note: The IBM blueID IDAAS prohibits cross-orgin requests from client-side browser applications. Unfortunately, this means we cannot use the API Connect Developer Portal to obtain a token from the blueID system. To test the API, you need to use a server-side application that does not enforce CORS restrictions like the browser does. In the following section, I’m using an API test client called Paw for macOS.
 
