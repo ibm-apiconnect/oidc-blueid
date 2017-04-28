@@ -1,0 +1,99 @@
+swagger: '2.0'
+info:
+  x-ibm-name: logistics
+  title: logistics
+  version: 1.0.0
+  description: API for obtaining shipping rates to a zip code.
+  contact:
+    name: Tim Baker
+    email: bakert@us.ibm.com
+    url: 'http://www-03.ibm.com/software/products/en/api-connect'
+  termsOfService: ''
+  license:
+    name: GNU GENERAL PUBLIC LICENSE
+schemes:
+  - https
+basePath: /logistics
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  Client ID:
+    description: ''
+    in: header
+    name: X-IBM-Client-Id
+    type: apiKey
+  Client Secret:
+    type: apiKey
+    description: ''
+    in: header
+    name: X-IBM-Client-Secret
+security:
+  - Client ID: []
+    Client Secret: []
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  gateway: datapower-gateway
+  catalogs:
+    apic-dev:
+      properties:
+        runtime-url: $(TARGET_URL)
+  properties:
+    shipping_svc_url:
+      value: 'https://thinkibm-services.mybluemix.net/shipping/calculate?from_zip=90210&to_zip='
+      description: Location of the shipping calculator servics
+      encoded: false
+  phase: realized
+  assembly:
+    execute:
+      - proxy:
+          title: proxy
+          timeout: 60
+          verb: keep
+          cache-response: protocol
+          cache-ttl: 900
+          version: 1.0.0
+          target-url: $(shipping_svc_url)$(request.parameters.zip)
+paths:
+  /shipping:
+    get:
+      responses:
+        '200':
+          description: 200 OK
+          schema:
+            $ref: '#/definitions/rates'
+      summary: Calculate shipping rates to a destination zip code
+      operationId: shipping.calc
+      parameters:
+        - name: zip
+          type: string
+          required: true
+          in: query
+          description: Destination zip code.
+definitions:
+  rates:
+    properties:
+      rates:
+        properties:
+          next_day:
+            type: string
+            example: '20.00'
+          two_day:
+            type: string
+            example: '17.00'
+          ground:
+            type: string
+            example: '8.00'
+        required:
+          - ground
+          - two_day
+          - next_day
+    required:
+      - rates
+externalDocs:
+  description: GitHub
+  url: 'https://github.com/ibm-apiconnect/oidc-blueid'
