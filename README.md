@@ -10,7 +10,7 @@ Sections of this guide:
 
 1) Register an Application in the API Connect Developer Portal
 
-2) Register a BlueID Application and Client
+2) Register a blueID Application and Client
 
 3) Configure an API to use blueID ODIC
 
@@ -38,7 +38,7 @@ Sections of this guide:
 
     ![](./img/show-app-client-secret.png)
 
-## 2) Register a BlueID Application and Client
+## 2) Register a blueID Application and Client
 
 1.  Launch the IBM SSO Self-Service Portal:
 
