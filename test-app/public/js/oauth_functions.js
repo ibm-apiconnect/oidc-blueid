@@ -18,7 +18,7 @@ function buildRoAuthUrl (clientId, redirectUri, reqScope, grantType) {
 
 	var url_params = {
 		client_id: clientId,
-		redirect_url: redirectUri,
+		redirect_uri: redirectUri,
 		scope: reqScope
 	};
 
