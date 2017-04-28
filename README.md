@@ -51,7 +51,7 @@ Sections of this guide:
 1.  Fill out the Application Details form, this page includes details for the API you’re developing.
 
     ![](./img/blue-id-app-settings.png)
-    
+
 1.  Select the Pre-Production identity provider.
 
     ![](./img/select-blueid-idp.png)
@@ -95,7 +95,7 @@ Sections of this guide:
 1.  Click the `Add +` button and chose to `Import API from a file or URL`.
 
     ![](./img/import-api-template.png)
-    
+
 1.  Click on the `Or import from URL...` and provide the url:
 
     *	https://raw.githubusercontent.com/ibm-apiconnect/oidc-blueid/master/samples/logistics_1.0.0.yaml
@@ -116,7 +116,7 @@ Sections of this guide:
 
 1.  Select the desired grant type flow.
 
-    Note: The flow selected here is for informational purposes within the developer portal. Whichever flow you decide to use must be enabled for the blueID client. To remain consistent with this guide, I suggest you use the `Access Code` flow.
+    **Note:** The flow selected here is for informational purposes within the developer portal. Whichever flow you decide to use must be enabled for the blueID client. To remain consistent with this guide, I suggest you use the `Access Code` flow.
 
 1.  Enter the blueID endpoints for the `Authorization URL`, `Token URL` and `Introspection URL`.
 
@@ -127,7 +127,7 @@ Sections of this guide:
 1.  Scroll down to the Security section of the API definition and ensure all three Security Definitions are selected, along with the two OAuth scopes.
 
     ![](./img/config-oauth-security-selection.png)
-    
+
 1.  Save the API definition.
 
 ## 4) Publish and subscribe to the API Product
@@ -139,7 +139,7 @@ Sections of this guide:
 1.  Select the desired catalog from the list and click on the `Create product` button.
 
     ![](./img/new-api-product-publish.png)
-    
+
 1.  Open a new browser tab and log in to the Catalog’s Developer Portal.
 
 1.  Select the API Products tab and select your new `logistics product`.
@@ -150,7 +150,7 @@ Sections of this guide:
 
 ## 5) Test the API
 
-Note: The IBM blueID IDaaS prohibits cross-orgin requests from client-side browser applications. Unfortunately, this means we cannot use the API Connect Developer Portal to obtain a token from the blueID system. To test the API, you need to use a server-side application.
+**Note:** The IBM blueID IDaaS prohibits cross-orgin requests from client-side browser applications. Unfortunately, this means we cannot use the API Connect Developer Portal to obtain a token from the blueID system. To test the API, you need to use a server-side application.
 
 In the following section, I use an API test client called Postman which is available for free here: <https://www.getpostman.com/>. I have built a test Collection for Postman that you can import and configure to your environment.
 
@@ -185,7 +185,7 @@ In the following section, I use an API test client called Postman which is avail
 1.  Open the `Logistics + OIDC` test request and click on the `Authorization` tab, followed by the `OAuth 2.0` option in the drop down menu.
 
     ![](./img/postman-set-authz.png)
-    
+
 1.  Click the `Get New Access Token` button.
 
 1.  Fill in the token request form:
