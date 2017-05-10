@@ -206,9 +206,11 @@ In the following section, I use an API test client called Postman which is avail
 
 1.  Once you sign-in, Postman will automatically save the token for use in your API calls.
 
-1.  Select the `blueID` token from the Existing Tokens section, thecn click on the Use Token button to add it to the request headers.
+1.  Select the `blueID` token from the Existing Tokens section, select the `Header` option from the `Add token to` menu.
 
-    ![](./img/postman-use-token.png)
+    ![](./img/postman-use-header.png)
+
+1.  Then click on the Use Token button to add it to the request headers.
 
 1.  You’re now ready to call the API hosted on the IBM API Connect platform. Click the Send Request button and view the response.
 
